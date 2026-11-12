@@ -1,0 +1,14 @@
+services:
+  private-channel-bot:
+    build: .
+    container_name: private-channel-bot
+    restart: unless-stopped
+    environment:
+      DISCORD_TOKEN: ${DISCORD_TOKEN}
+      DISCORD_GUILD_ID: ${DISCORD_GUILD_ID}
+      DATA_DIR: /data
+    volumes:
+      - bot-data:/data
+
+volumes:
+  bot-data:
